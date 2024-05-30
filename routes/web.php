@@ -4,6 +4,13 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
+
+    // tirar necessidade de fica logando
+    if(app()->isLocal()) {
+        auth()->loginUsingId(1);
+        return redirect()->route('dashboard');
+    }
+
     return view('welcome');
 });
 
