@@ -20,6 +20,20 @@
                 </div>
             </x-form>
 
+            <hr class="border-gray-700 my-4">
+
+
+            <div class="dark:text-gray-100 uppercase font-bold mb-1" >
+                List of questions
+            </div>
+
+            <div class="dark:text-gray-400 space-y-4">
+                @foreach($questions as $question)
+                    <x-list-question :question="$question"/>
+                @endforeach
+            </div>
+
+
         </div>
     </div>
 </x-app-layout>
