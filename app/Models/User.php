@@ -43,4 +43,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function like(Question $question): void
+    {
+        Vote::query()->create([
+            'question_id' => $question->id,
+            'like' => 1,
+            'unlike' => 0,
+            'user_id' => auth()->id(),
+        ]);
+
+    }
 }
