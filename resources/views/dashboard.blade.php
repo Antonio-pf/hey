@@ -10,7 +10,7 @@
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
 
-            <x-form post :action="route('question.store')">
+            <x-form :action="route('question.store')">
 
                 <x-textarea label='Question' name="question"/>
 
