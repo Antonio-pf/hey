@@ -23,3 +23,18 @@ it('should vote a question', function () {
     ]);
 
 });
+
+it('should not be able to like more than 1 time', function () {
+    $user = User::factory()->create();
+    actingAs($user);
+
+    $question = Question::factory()->create();
+
+    post(route('question.like', $question));
+    post(route('question.like', $question));
+    post(route('question.like', $question));
+    post(route('question.like', $question));
+
+    // consulta o banco se exite o registro
+    expect($user->votes)->toHaveCount(1);
+});
