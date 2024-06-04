@@ -15,7 +15,6 @@ class Question extends Model
         'draft' => 'boolean'
     ];
 
-
     public function votes():HasMany
     {
         return $this->hasMany(Vote::class);

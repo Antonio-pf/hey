@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Question;
 
+use App\Http\Controllers\Controller;
 use App\Models\Question;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 
 class QuestionController extends Controller
 {
