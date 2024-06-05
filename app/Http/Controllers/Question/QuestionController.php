@@ -11,8 +11,7 @@ class QuestionController extends Controller
     public function store(): RedirectResponse
     {
 
-
-        $attributes = request()->validate([
+        request()->validate([
             'question' => [
                 'required',
                 'min:10',
@@ -23,8 +22,11 @@ class QuestionController extends Controller
             },],
         ]);
 
-        Question::query()->create(
-            array_merge($attributes, ['draft' => true])
+        user()->questions()->create(
+            [
+                'question' => request()->question,
+                'draft' => true,
+            ]
         );
 
         return  to_route('dashboard');
