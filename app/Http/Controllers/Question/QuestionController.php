@@ -10,7 +10,6 @@ class QuestionController extends Controller
 {
     public function index()
     {
-
         return view('question.index')
             ->with([
                 'questions' => user()->questions
@@ -38,5 +37,14 @@ class QuestionController extends Controller
         );
 
         return  back();
+    }
+
+    public function  destroy(Question $question): RedirectResponse
+    {
+        $this->authorize('destroy', $question);
+
+        $question->delete();
+
+        return back();
     }
 }
