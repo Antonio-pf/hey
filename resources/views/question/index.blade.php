@@ -1,5 +1,3 @@
-
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
@@ -22,19 +20,82 @@
 
             <hr class="border-gray-700 my-4">
 
-
-            <div class="dark:text-gray-100 uppercase font-bold mb-1" >
-                My questions
-            </div>
-
-            <div class="dark:text-gray-100 uppercase font-bold mb-1" >
+            <div class="dark:text-gray-100 uppercase font-bold mb-1">
                 Draft
             </div>
 
-            <div class="dark:text-gray-400 space-y-4">
-                @foreach($questions as $question)
-                    <x-list-question :question="$question"/>
-                @endforeach
+            <div class="dark:text-gray-100 uppercase font-bold mb-1">
+                <x-table>
+                    <x-table.thead>
+                        <tr>
+                            <x-table.th>
+                                Question
+                            </x-table.th>
+
+                            <x-table.th>
+                                Actions
+                            </x-table.th>
+                        </tr>
+                    </x-table.thead>
+
+                    <tbody>
+
+                    @foreach($questions->where('draft', true) as $question)
+                        <x-table.tr>
+                            <x-table.td>
+                                {{ $question->question }}
+                            </x-table.td>
+                            <x-table.td>
+                                <x-form :action="route('question.publish', $question)" put>
+                                    <x-btn.primary type="submit">
+                                        Publicar
+                                    </x-btn.primary>
+                                </x-form>
+                            </x-table.td>
+                        </x-table.tr>
+                    @endforeach
+                    </tbody>
+                </x-table>
+            </div>
+
+
+            <div class="dark:text-gray-100 uppercase font-bold mb-1">
+                My questions
+            </div>
+            <div class="dark:text-gray-100 uppercase font-bold mb-1">
+                <x-table>
+                    <x-table.thead>
+                        <tr>
+                            <x-table.th>
+                                Question
+                            </x-table.th>
+
+                            <x-table.th>
+                                Actions
+                            </x-table.th>
+                        </tr>
+                    </x-table.thead>
+
+                    <tbody>
+
+                    @foreach($questions->where('draft', false) as $question)
+                        <x-table.tr>
+                            <x-table.td>
+                                {{ $question->question }}
+                            </x-table.td>
+                            <x-table.td>
+                                <x-form :action="route('question.destroy', $question)" delete>
+                                    <x-btn.primary type="submit">
+                                        Deletar
+                                    </x-btn.primary>
+                                </x-form>
+                            </x-table.td>
+
+                        </x-table.tr>
+                    @endforeach
+
+                    </tbody>
+                </x-table>
             </div>
 
 

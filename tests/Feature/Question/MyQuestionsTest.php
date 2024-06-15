@@ -31,5 +31,4 @@ it('should be able to list all question created by me', function () {
         $response->assertDontSee($q->question);
     }
 
-
 });
