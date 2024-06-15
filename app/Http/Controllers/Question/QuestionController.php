@@ -1,18 +1,25 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Question;
 
+use App\Http\Controllers\Controller;
 use App\Models\Question;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 
 class QuestionController extends Controller
 {
+    public function index()
+    {
+
+        return view('question.index')
+            ->with([
+                'questions' => user()->questions
+            ]);
+    }
     public function store(): RedirectResponse
     {
 
-
-        $attributes = request()->validate([
+        request()->validate([
             'question' => [
                 'required',
                 'min:10',
@@ -23,10 +30,13 @@ class QuestionController extends Controller
             },],
         ]);
 
-        Question::query()->create(
-            $attributes
+        user()->questions()->create(
+            [
+                'question' => request()->question,
+                'draft' => true,
+            ]
         );
 
-        return  to_route('dashboard');
+        return  back();
     }
 }
