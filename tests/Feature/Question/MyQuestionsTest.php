@@ -14,7 +14,6 @@ it('should be able to list all question created by me', function () {
         ->create();
 
     $wrongUser = User::factory()->create();
-    actingAs($wrongUser);
 
     $questionsWrong = Question::factory()->for($wrongUser, 'createdBy')
         ->count(10)
