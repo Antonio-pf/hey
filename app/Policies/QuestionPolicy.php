@@ -20,7 +20,7 @@ class QuestionPolicy
     }
     public function update(User $user, Question $question): bool
     {
-        return $question->draft;
+        return $question->draft && $question->createdBy->is($user);
     }
 
 

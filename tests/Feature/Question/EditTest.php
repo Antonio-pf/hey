@@ -6,7 +6,7 @@ use function Pest\Laravel\{actingAs, get};
 
 it('can open a question to edit', function () {
     $user = User::factory()->create();
-    $question = Question::factory()->for($user, 'createdBy')->create();
+    $question = Question::factory()->for($user, 'createdBy')->create(['draft' => true]);
     actingAs($user);
 
     // garatir que entra na rota passando a pergunta
@@ -31,4 +31,17 @@ it('should make sure that only question with status draft can edit it', function
     // garatir que entra na rota passando a pergunta
     get(route('question.edit', $questionNotDraft))->assertForbidden();
     get(route('question.edit', $draftQuestion))->assertSuccessful();
+});
+
+
+it('should make sure that only question own', function () {
+    $user = User::factory()->create();
+    $wrongUser = User::factory()->create();
+    $question = Question::factory()->for($user, 'createdBy')->create(['draft' => true, 'created_by' => $user->id]);
+
+    actingAs($wrongUser);
+    get(route('question.edit', $question))->assertForbidden();
+
+    actingAs($user);
+    get(route('question.edit', $question))->assertSuccessful();
 });
