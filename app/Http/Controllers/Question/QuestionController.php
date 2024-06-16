@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Question;
 use App\Http\Controllers\Controller;
 use App\Models\Question;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\View\View;
 
 class QuestionController extends Controller
 {
@@ -49,8 +50,9 @@ class QuestionController extends Controller
         return back();
     }
 
-    public function edit(Question $question)
+    public function edit(Question $question): View
     {
-
+        $this->authorize('update', $question);
+        return view('question.edit')->with(['question' => $question ]);
     }
 }

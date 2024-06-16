@@ -2,8 +2,7 @@
 
 use App\Models\Question;
 use App\Models\User;
-use function Pest\Laravel\actingAs;
-use function Pest\Laravel\get;
+use function Pest\Laravel\{actingAs, get};
 
 it('should be able to list all question created by me', function () {
     $user = User::factory()->create();
