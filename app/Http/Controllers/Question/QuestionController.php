@@ -55,4 +55,13 @@ class QuestionController extends Controller
         $this->authorize('update', $question);
         return view('question.edit')->with(['question' => $question ]);
     }
+
+    public function update(Question $question): RedirectResponse
+    {
+        $this->authorize('update', $question);
+
+        $question->question = request()->question;
+        $question->save();
+        return back();
+    }
 }
