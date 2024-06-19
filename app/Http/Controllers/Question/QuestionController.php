@@ -60,6 +60,17 @@ class QuestionController extends Controller
     {
         $this->authorize('update', $question);
 
+        request()->validate([
+            'question' => [
+                'required',
+                'min:10',
+                function (string $attribute, mixed $value, \Closure $fail) {
+                    if (isset($value) && $value[strlen($value) - 1] != '?') {
+                        $fail("Are you sure is a question? It is missing the question mark the end.");
+                    }
+                },],
+        ]);
+
         $question->question = request()->question;
         $question->save();
         return back();
