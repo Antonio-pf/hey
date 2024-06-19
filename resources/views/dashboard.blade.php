@@ -15,6 +15,8 @@
                 @foreach($questions->where('draft', false) as $question)
                     <x-list-question :question="$question"/>
                 @endforeach
+
+                {{ $questions->links() }}
             </div>
         </div>
     </div>

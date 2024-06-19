@@ -13,7 +13,7 @@ class DashboardController extends Controller
 //        $questions = Question::all();
         $questions = Question::withSum('votes', 'like')
             ->withSum('votes', 'unlike')
-            ->get();
+            ->paginate(10);
 
         return view('dashboard', [
             'questions' => $questions,
