@@ -15,7 +15,7 @@ it("should be able to update a question", function () {
     //Act :: agir
     put(route('question.update', $question), [
         'question' => 'Updated question?',
-    ])->assertRedirect();
+    ])->assertRedirect(route('question.index'));
 
 
     $question->refresh();
@@ -36,7 +36,7 @@ it('should be able to update a new question bigger tan 255 characters', function
         'question' => str_repeat('*', 260) . '?',
     ]);
 
-    $request->assertRedirect();
+    $request->assertRedirect(route('question.index'));
     assertDatabaseCount('questions', 1);
 });
 
