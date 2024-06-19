@@ -36,3 +36,26 @@ it('should paginate question', function () {
     });
 
 });
+
+
+it('should order by and unlike', function () {
+    $user = User::factory()->create();
+
+    Question::factory()->count(5)->create();
+    $mostLiked = Question::find(1);
+    $user->like($mostLiked);
+
+    $unlikeQuestion = Question::find(3);
+    $user->unlike($unlikeQuestion);
+
+    actingAs($user);
+
+    get(route('dashboard'))
+        ->assertViewHas('questions', function ($questions) use ($mostLiked, $unlikeQuestion) {
+            expect($questions)
+                ->first()->id->toBe(1)
+                ->and($questions)
+                ->last()->id->toBe(3);
+            return true;
+        });
+});
