@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Question;
 
 use App\Http\Controllers\Controller;
 use App\Models\Question;
+use App\Rules\SameQuestionRules;
 use Dflydev\DotAccessData\Data;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
@@ -18,6 +19,7 @@ class QuestionController extends Controller
                 'archivedQuestions' => user()->questions()->onlyTrashed()->get(),
             ]);
     }
+
     public function store(): RedirectResponse
     {
 
@@ -29,7 +31,9 @@ class QuestionController extends Controller
                     if (isset($value) && $value[strlen($value) - 1] != '?') {
                         $fail("Are you sure is a question? It is missing the question mark the end.");
                     }
-            },],
+                },
+                new SameQuestionRules()
+            ],
         ]);
 
         user()->questions()->create(
@@ -39,10 +43,10 @@ class QuestionController extends Controller
             ]
         );
 
-        return  back();
+        return back();
     }
 
-    public function  destroy(Question $question): RedirectResponse
+    public function destroy(Question $question): RedirectResponse
     {
 
         $this->authorize('destroy', $question);
@@ -55,7 +59,7 @@ class QuestionController extends Controller
     public function edit(Question $question): View
     {
         $this->authorize('update', $question);
-        return view('question.edit')->with(['question' => $question ]);
+        return view('question.edit')->with(['question' => $question]);
     }
 
     public function update(Question $question): RedirectResponse
@@ -77,6 +81,7 @@ class QuestionController extends Controller
         $question->save();
         return to_route('question.index');
     }
+
     public function archive(Question $question): RedirectResponse
     {
 

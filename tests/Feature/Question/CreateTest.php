@@ -80,3 +80,15 @@ test('only authenticated users can create a new question', function (){
        'question' => str_repeat('*', 8) . '?'
     ])->assertRedirect(route('login'));
 });
+
+test('the question should be unique', function (){
+
+    $user = User::factory()->create();
+    $question = \App\Models\Question::factory()->create(['question' => 'Some question here?']);
+
+    actingAs($user);
+
+    post(route('question.store'), [
+       'question' => $question->question,
+    ])->assertSessionHasErrors(['question' => 'question exists']);
+});
