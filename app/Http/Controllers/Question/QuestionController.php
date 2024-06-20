@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Question;
 
 use App\Http\Controllers\Controller;
 use App\Models\Question;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -13,7 +14,8 @@ class QuestionController extends Controller
     {
         return view('question.index')
             ->with([
-                'questions' => user()->questions
+                'questions' => user()->questions,
+                'archivedQuestions' => user()->questions()->onlyTrashed()->get(),
             ]);
     }
     public function store(): RedirectResponse
@@ -45,7 +47,7 @@ class QuestionController extends Controller
 
         $this->authorize('destroy', $question);
 
-        $question->delete();
+        $question->forceDelete();
 
         return back();
     }
@@ -74,5 +76,20 @@ class QuestionController extends Controller
         $question->question = request()->question;
         $question->save();
         return to_route('question.index');
+    }
+    public function archive(Question $question): RedirectResponse
+    {
+
+        $this->authorize('archive', $question);
+        $question->delete();
+
+        return back();
+    }
+
+    public function restore($id): RedirectResponse
+    {
+        $question = Question::withTrashed()->find($id);
+        $question->restore();
+        return back();
     }
 }

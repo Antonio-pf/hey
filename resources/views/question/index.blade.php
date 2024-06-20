@@ -41,12 +41,12 @@
                                 <div class="flex items-center gap-2">
                                     <x-form :action="route('question.publish', $question)" put>
                                         <x-btn.primary type="submit">
-                                            Publicar
+                                            Publish
                                         </x-btn.primary>
                                     </x-form>
                                     <x-form :action="route('question.destroy', $question)" delete>
                                         <x-btn.primary type="submit">
-                                            Deletar
+                                            Delete
                                         </x-btn.primary>
                                     </x-form>
 
@@ -85,7 +85,49 @@
                             <x-table.td>
                                 <x-form :action="route('question.destroy', $question)" delete>
                                     <x-btn.primary type="submit">
-                                        Deletar
+                                        Delete
+                                    </x-btn.primary>
+                                </x-form>
+
+                                <x-form :action="route('question.archive', $question)" patch>
+                                    <x-btn.primary type="submit">
+                                        Archive
+                                    </x-btn.primary>
+                                </x-form>
+                            </x-table.td>
+                        </x-table.tr>
+                    @endforeach
+                    </tbody>
+                </x-table>
+            </div>
+
+
+            <div class="dark:text-gray-100 uppercase font-bold mb-1">
+                Archive questions
+            </div>
+            <div class="dark:text-gray-100 uppercase font-bold mb-1">
+                <x-table>
+                    <x-table.thead>
+                        <tr>
+                            <x-table.th>
+                                Question
+                            </x-table.th>
+
+                            <x-table.th>
+                                Actions
+                            </x-table.th>
+                        </tr>
+                    </x-table.thead>
+                    <tbody>
+                    @foreach($archivedQuestions as $archivedQuestion)
+                        <x-table.tr>
+                            <x-table.td>
+                                {{ $archivedQuestion->question }}
+                            </x-table.td>
+                            <x-table.td>
+                                <x-form :action="route('question.restore', $archivedQuestion)" patch>
+                                    <x-btn.primary type="submit">
+                                        Restore
                                     </x-btn.primary>
                                 </x-form>
                             </x-table.td>
