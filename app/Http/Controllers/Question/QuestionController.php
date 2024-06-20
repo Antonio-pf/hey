@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Question;
 
 use App\Http\Controllers\Controller;
 use App\Models\Question;
+use Dflydev\DotAccessData\Data;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\View\View;
 
@@ -81,7 +82,13 @@ class QuestionController extends Controller
         $this->authorize('archive', $question);
         $question->delete();
 
+        return back();
+    }
 
+    public function restore($id): RedirectResponse
+    {
+        $question = Question::withTrashed()->find($id);
+        $question->restore();
         return back();
     }
 }
