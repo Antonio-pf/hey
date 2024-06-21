@@ -83,7 +83,8 @@
                                 {{ $question->question }}
                             </x-table.td>
                             <x-table.td>
-                                <x-form :action="route('question.destroy', $question)" delete>
+                                <x-form :action="route('question.destroy', $question)" delete
+                                >
                                     <x-btn.primary type="submit">
                                         Delete
                                     </x-btn.primary>

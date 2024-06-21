@@ -16,7 +16,7 @@
                     <x-list-question :question="$question"/>
                 @endforeach
 
-                {{ $questions->links() }}
+                {{ $questions->withQueryString()->links() }}
             </div>
         </div>
     </div>
