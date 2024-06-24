@@ -1,18 +1,29 @@
 <?php
 
-use App\Http\Controllers\{DashboardController, ProfileController, Question, Question\QuestionController};
+use App\Http\Controllers\{Auth\Github\CallbackController,
+    Auth\Github\RedirectController,
+    DashboardController,
+    ProfileController,
+    Question,
+    Question\QuestionController};
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
 
     // tirar necessidade de fica logando
-    if(app()->isLocal()) {
-        auth()->loginUsingId(1);
-        return redirect()->route('dashboard');
-    }
+//    if(app()->isLocal()) {
+//        auth()->loginUsingId(1);
+//        return redirect()->route('dashboard');
+//    }
 
     return view('welcome');
 });
+
+Route::get('/github/login', RedirectController::class)
+    ->name('login.github');
+Route::get('/github/callback', CallbackController::class)
+    ->name('callback.github');
+
 
 
 Route::middleware(['auth', 'verified'])->group(function () {
