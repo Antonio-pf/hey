@@ -6,7 +6,9 @@
             {{ __('Votes') }}
         </h2>
     </x-slot>
-
+        <div id="app">
+            <App/>
+        </div>
     <form action="{{ route('dashboard') }}"  method="get" class="max-w-md mx-auto mt-5">
         @csrf
             <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>

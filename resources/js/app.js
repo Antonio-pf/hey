@@ -1,11 +1,15 @@
 import './bootstrap';
-
+import { createApp  } from "vue";
 import Alpine from 'alpinejs';
 import 'flowbite'
+import App from './components/App.vue';
 
 window.Alpine = Alpine;
-
 Alpine.start();
+
+const app = createApp();
+app.component('app', App)
+app.mount('#app');
 
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
