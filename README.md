@@ -1,11 +1,70 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
+<h1 align="center"> HEY </h1>
 <p align="center">
 <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
+
+### Tópicos 
+
+- [Descrição do projeto](#descrição-do-projeto)
+
+- [Funcionalidades](#funcionalidades)
+
+- [Aplicação](#aplicação)
+
+- [Ferramentas utilizadas](#ferramentas-utilizadas)
+
+- [Acesso ao projeto](#acesso-ao-projeto)
+
+- [Abrir e rodar o projeto](#abrir-e-rodar-o-projeto)
+
+- [Desenvolvedores](#desenvolvedores)
+
+
+
+## Descrição do projeto 
+
+<p align="justify">
+ O projeto em desenvolvimento, chamado HEY, é um sistema de votação de perguntas e enquetes, criado para praticar PHP e Laravel. O sistema permite que os usuários interajam com as enquetes de outros usuários, dando likes ou deslikes. Além disso, os usuários podem criar suas próprias perguntas, salvá-las como rascunho e publicá-las posteriormente. Também é possível arquivar perguntas quando desejado.
+    
+</p>
+
+## Funcionalidades
+
+:heavy_check_mark: `Funcionalidade 1:` Login do usuário.
+
+:heavy_check_mark: `Funcionalidade 2:` Login pelo github.
+
+:heavy_check_mark: `Funcionalidade 3:` Crud das enquetes.
+
+:heavy_check_mark: `Funcionalidade 4:` Like e deslike de perguntas.
+
+:heavy_check_mark: `Funcionalidade 5:` Arquivar uma pergunta.
+
+:heavy_check_mark: `Funcionalidade 6:` Pesquisa sobre a descrição da pergunta
+
+:heavy_check_mark: `Funcionalidade 7:` Modo dark.
+
+
+## Aplicação
+
+<div align="center">
+gravar um gifh
+![Android Emulator](https://user-images.githubusercontent.com/37356058/135944390-ec96d4ec-ee43-4db9-882f-89be66aad23a.gif)
+
+  </div>
+
+###
+
+## Ferramentas utilizadas
+
+<a href="https://www.java.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> 
+
+<a href="https://developer.android.com/studio" target="_blank"> <img src="https://developer.android.com/images/logos/android.svg" alt="androidStudio" width="40" height="40"/> </a> <a href="https://firebase.google.com/?hl=pt" target="_blank"> <img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_96dp.png" alt="firebase" width="40" height="40"/> </a>
+
+###
 
 ## About Laravel
 
