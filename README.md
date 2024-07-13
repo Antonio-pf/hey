@@ -60,9 +60,16 @@ gravar um gifh
 
 ## Ferramentas utilizadas
 
-<a href="https://www.java.com" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> 
+<p align="center">
+ 
+ <img src="https://github.com/marwin1991/profile-technology-icons/assets/76662862/dbbc299a-8356-45e4-9d2e-a6c21b4569cf" width='50px'/>
+  <img src="https://github.com/marwin1991/profile-technology-icons/assets/25181517/afcf1c98-544e-41fb-bf44-edba5e62809a" width='50px'>
+  <img src="https://user-images.githubusercontent.com/25181517/192108372-f71d70ac-7ae6-4c0d-8395-51d8870c2ef0.png" width='50px'/>
+  <img src="https://user-images.githubusercontent.com/25181517/117208740-bfb78400-adf5-11eb-97bb-09072b6bedfc.png" width='50px'>
+   <img src="https://user-images.githubusercontent.com/25181517/202896760-337261ed-ee92-4979-84c4-d4b829c7355d.png" width='50px'/>
 
-<a href="https://developer.android.com/studio" target="_blank"> <img src="https://developer.android.com/images/logos/android.svg" alt="androidStudio" width="40" height="40"/> </a> <a href="https://firebase.google.com/?hl=pt" target="_blank"> <img src="https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_96dp.png" alt="firebase" width="40" height="40"/> </a>
+</p>
+
 
 ###
 
