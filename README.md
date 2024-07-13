@@ -48,9 +48,7 @@
 ## Aplicação
 
 <div align="center">
-gravar um gifh
-![Android Emulator](https://user-images.githubusercontent.com/37356058/135944390-ec96d4ec-ee43-4db9-882f-89be66aad23a.gif)
-
+gif em produção....
   </div>
 
 ###
